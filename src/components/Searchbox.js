@@ -1,21 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Searchbox(props) {
   return (
     <div>
-      <form className="search">
-        <input
-          //   value={}
-          //   onChange={}
-          type="text"
-        />
-        <input
-          className="searchbutton"
-          //   onClick={}
-          type="submit"
-          value="SEARCH"
-        />
-      </form>
+      <input
+        value={props.value}
+        onChange={(event) => props.setSearchValue(event.target.value)}
+        type="text"
+      />
     </div>
   );
 }
