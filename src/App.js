@@ -8,8 +8,8 @@ const MOVIE_API_URL = "https://www.omdbapi.com/?s=star&apikey=4b0b5ec1";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
-  const [currentMovieID, setCurrentMovieID] = useState('');
+  const [searchValue, setSearchValue] = useState("");
+  const [currentMovieID, setCurrentMovieID] = useState("");
 
   useEffect(() => {
     fetch(MOVIE_API_URL)
@@ -51,16 +51,23 @@ function App() {
         </div>
       </div>
       <div className="body mt-5 container mx-auto">
-        <div className="border-r-2 w-1/4">
-          {movies.map((movie, index) => (
-            <Movie
-              current={(movieID) => setCurrentMovieID(movieID)}
-              movie={movie}
-            />
-          ))}
-        </div>
-        <div className="w-3/4">
-          {currentMovieID !== "" && ( <MovieCard currentID={currentMovieID}  />)}
+        <div className="movie-list h-4/5">
+          <h2>Movie List</h2>
+          <div className="flex">
+            <div className="border-r-2 w-1/4">
+              {movies.map((movie, index) => (
+                <Movie
+                  current={(movieID) => setCurrentMovieID(movieID)}
+                  movie={movie}
+                />
+              ))}
+            </div>
+            <div className="w-3/4">
+              {currentMovieID !== "" && (
+                <MovieCard currentID={currentMovieID} />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
