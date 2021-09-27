@@ -2,24 +2,26 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Searchbox from "./components/Searchbox.js";
 import Movie from "./components/Movie.js";
+import MovieCard from "./components/MovieCard";
 
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=star&apikey=4b0b5ec1";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [searchValue, setSearchValue] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [currentMovieID, setCurrentMovieID] = useState('');
 
   useEffect(() => {
     fetch(MOVIE_API_URL)
       .then((response) => response.json())
       .then((jsonResponse) => {
         setMovies(jsonResponse.Search);
-       /*  setLoading(false); */
+        /*  setLoading(false); */
       });
   }, []);
 
   const getMovieRequest = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=fe1b8706`;
+    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=4b0b5ec1`;
 
     const response = await fetch(url);
     const responseJson = await response.json();
@@ -30,6 +32,10 @@ function App() {
       setMovies([]);
     }
   };
+
+  useEffect(() => {
+    console.log(currentMovieID);
+  }, [currentMovieID]);
 
   useEffect(() => {
     getMovieRequest();
@@ -47,8 +53,14 @@ function App() {
       <div className="body mt-5 container mx-auto">
         <div className="border-r-2 w-1/4">
           {movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie} />
+            <Movie
+              current={(movieID) => setCurrentMovieID(movieID)}
+              movie={movie}
+            />
           ))}
+        </div>
+        <div className="w-3/4">
+          {currentMovieID !== "" && ( <MovieCard currentID={currentMovieID}  />)}
         </div>
       </div>
     </div>
