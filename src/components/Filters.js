@@ -26,7 +26,7 @@ function Filters({ currentType, currentYear }) {
                   () => currentType('')
               }
               />
-              <span className="ml-1 mr-2 text-sm text-light">Any</span>
+              <span className="ml-1 mr-2 text-sm text-light">All</span>
 
               <input 
               type='radio' 

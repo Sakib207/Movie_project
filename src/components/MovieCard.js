@@ -33,25 +33,25 @@ function MovieCard(props) {
                   </h3>
                   {/* Subcategory */}
                   <div className="flex space-x-1 items-center">
-                    <span className="mx-2 border rounded-md border-color-light px-2 py-1 text-sm  text-gray-600 lg:mb-4">
+                    <span className="mx-2 border rounded-md border-color-light px-2 py-1 text-sm  text-gray-200 lg:mb-4">
                       {movie.Rated}
                     </span>
-                    <span className="movie--year  text-sm  text-gray-600 lg:mb-4">
+                    <span className="movie--year  text-sm  text-gray-200 lg:mb-4">
                       {movie.Year}
                     </span>
-                    <span className="text-sm  text-gray-600 lg:mb-4">•</span>
-                    <span className="text-sm  text-gray-600 lg:mb-4">
+                    <span className="text-sm  text-gray-200 lg:mb-4">•</span>
+                    <span className="text-sm  text-gray-200 lg:mb-4">
                       {movie.Genre}
                     </span>
-                    <span className="text-sm  text-gray-600 lg:mb-4">•</span>
-                    <span className="text-sm  text-gray-600 lg:mb-4">
+                    <span className="text-sm  text-gray-200 lg:mb-4">•</span>
+                    <span className="text-sm  text-gray-200 lg:mb-4">
                       {movie.Runtime}
                     </span>
                   </div>
 
                   {/* Casts */}
                   <div className="casts">
-                    <h3 className="text-base font-medium  text-gray-600 lg:mb-4">
+                    <h3 className="text-base font-medium  text-gray-200 lg:mb-4">
                       {movie.Actors}
                     </h3>
                   </div>
@@ -60,7 +60,7 @@ function MovieCard(props) {
               {/* body */}
               {/* plot */}
               <div className="my-8 border-t border-b">
-                <p className="py-4 px-2 md:text-base lg:text-base text-gray-600 ">
+                <p className="py-4 px-2 md:text-base lg:text-base text-gray-200 ">
                   {movie.Plot}
                 </p>
               </div>

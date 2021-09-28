@@ -53,16 +53,22 @@ function App() {
         </div>
       </div>
       <div className="body mt-5 container mx-auto">
-        <div className="movie-list h-4/5">
-          <h2>Movie List</h2>
-          <div className="flex">
-            <div className="border-r-2 w-1/4">
-              {movies.map((movie, index) => (
+        <div className="movie-list ">
+          <h2 className="text-2xl font-semibold text-light my-5">Movie List</h2>
+          <div className="flex my-24">
+            <div className="border-r-2 w-1/4 overflow-y-auto h-96 px-2">
+              {movies.length !== 0 ? ( 
+                movies.map((movie, index) => (
                 <Movie
                   current={(movieID) => setCurrentMovieID(movieID)}
                   movie={movie}
                 />
-              ))}
+              ))
+              ):(
+              <div className="flex items-center">
+                <h1 className="text-sm font-semibold text-light my-5">No Movies Found!</h1>
+              </div>
+              )}
             </div>
             <div className="w-3/4">
               {currentMovieID !== "" && (

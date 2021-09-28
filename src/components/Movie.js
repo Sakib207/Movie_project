@@ -8,7 +8,9 @@ function Movie({ current, movie }) {
     movie.Poster === "N/A" ? DEFAULT_PLACEHOLDERNAME_IMAGE : movie.Poster;
 
   return (
-    <div onClick={()=>current(movie.imdbID)} className="Movie border-b-2 py-6 flex flex-row items-center cursor-pointer">
+    <div 
+    onClick={()=>current(movie.imdbID)} 
+    className="Movie border-b-2 py-6 flex flex-row items-center cursor-pointer">
       <div className="w-1/4">
         <img
           className="w-full"
@@ -17,8 +19,8 @@ function Movie({ current, movie }) {
         />
       </div>
       <div className="w-3/4 mx-4">
-        <h2 className="text-gray-600 text-xl font-semibold">{movie.Title}</h2>
-        <p className="text-sm text-gray-500">{movie.Year}</p>
+        <h2 className="text-light text-xl font-semibold">{movie.Title}</h2>
+        <p className="text-sm text-light">{movie.Year}</p>
       </div>
     </div>
   );
